@@ -27,7 +27,7 @@ const SearchBar = ({keyword, onChangeKey, onSubmitKey})=>{
             <Feather name='search' size={30} style={styles.searchLogoStyles}/>
             <TextInput
                 style={styles.searchBarItemStyle}
-                placeholder = 'Search Resturant'
+                placeholder = 'Search Resturant 🍕'
                 value={keyword}
                 onChangeText={onChangeKey}
                 onEndEditing={onSubmitKey}
