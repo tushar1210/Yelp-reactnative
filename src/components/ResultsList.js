@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text,View,StyleSheet, FlatList} from 'react-native';
+import {Text,View,StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import { withNavigation } from 'react-navigation';
 import ResultDetail from './ResultsDetail';
 
 const styles = StyleSheet.create({
@@ -24,11 +25,17 @@ const ResultsList = (props)=>{
                 data={props.results}
                 renderItem={({item})=>{
                     return (
-                        <ResultDetail 
-                            name={item.name}
-                            imageURL={item.image_url}
-                            rating={item.rating}
-                        />
+                        <TouchableOpacity
+                            onPress={()=>props.navigation.navigate('Results',{
+                                id:item.id
+                            })}
+                        >
+                            <ResultDetail 
+                                name={item.name}
+                                imageURL={item.image_url}
+                                rating={item.rating}
+                            />
+                        </TouchableOpacity>
                     )
                 }}
             
@@ -37,4 +44,4 @@ const ResultsList = (props)=>{
     )
 }
 
-export default ResultsList;
+export default withNavigation(ResultsList);
